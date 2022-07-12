@@ -2,7 +2,7 @@ const express =  require('express');
 const { notes } = require('./db/db.json');
 const app = express();
 
-// filter searches
+// filter searches-- is this necessary for this app?
 function filterByQuery(query, notesArray) {
   let filteredResults = notesArray;
   if (query.title) {
@@ -37,6 +37,12 @@ app.get('/api/notes/:id', (req, res) => {
   } else {
     res.send(404)
   }
+});
+
+app.post('/api/notes', (req, res) => {
+  // req.body is where incoming content will be
+  console.log(req.body);
+  res.json(req.body);
 });
 
 app.listen(3001, () => {
