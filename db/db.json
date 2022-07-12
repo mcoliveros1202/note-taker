@@ -1,6 +1,16 @@
+
+{
+    "notes":
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "id": "0",
+        "title":"Test Note",
+        "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "id": "1",
+        "title": "Your Mom",
+        "text": "Your mom goes to college. My mom won't come visit me."
     }
 ]
+}
