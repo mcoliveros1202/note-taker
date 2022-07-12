@@ -1,7 +1,7 @@
 const express =  require('express');
 
 // for heroku
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
@@ -17,6 +17,6 @@ app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 // listen for server
-app.listen(3001, () => {
-    console.log(`API server now on port ${PORT}!`);
-  });
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}!`);
+});
