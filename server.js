@@ -5,6 +5,8 @@ const { notes } = require('./db/db.json');
 const { create } = require('domain');
 const app = express();
 
+const port = process.env.PORT || 3001
+
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
