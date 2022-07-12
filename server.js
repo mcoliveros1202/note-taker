@@ -5,7 +5,7 @@ const { notes } = require('./db/db.json');
 const { create } = require('domain');
 const app = express();
 
-const port = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -88,5 +88,5 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+    console.log(`API server now on port ${PORT}!`);
   });
