@@ -14,6 +14,21 @@
       "title": "To Do",
       "text": "Take down trash, fix sink, charge iPad, go to work, go to therapy, come home, work on challenge, go to office hours, go to class",
       "id": "2"
+    },
+    {
+      "title": "Note",
+      "text": "text",
+      "id": "3"
+    },
+    {
+      "title": "Testing this note",
+      "text": "Note text text for the note etc",
+      "id": "4"
+    },
+    {
+      "title": "Note Title: Bartok Fuss",
+      "text": "Bartok is very fussy.",
+      "id": "5"
     }
   ]
 }

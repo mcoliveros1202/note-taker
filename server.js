@@ -5,53 +5,16 @@ const { notes } = require('./db/db.json');
 const { create } = require('domain');
 const app = express();
 
+// for heroku
 const PORT = process.env.PORT || 3001
+
+app.use(express.static('public'));
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
+
 // parse incoming JSON data
 app.use(express.json());
-
-// filter searches-- is this necessary for this app?
-function filterByQuery(query, notesArray) {
-  let filteredResults = notesArray;
-  if (query.title) {
-    filteredResults = filteredResults.filter(note => note.title === query.title);
-  }
-  if (query.text) {
-    filteredResults = filteredResults.filter(note => note.text === query.text);
-  }
-  return filteredResults;
-}
-
-// search by id
-function findById(id, notesArray) {
-  const result = notesArray.filter(note => note.id === id)[0];
-  return result;
-}
-
-// creates new note in the notes array
-function createNewNote(body, notesArray) {
-  const note = body;
-
-  notesArray.push(note);
-  fs.writeFileSync(
-    path.join(__dirname, './db/db.json'),
-    JSON.stringify({ notes: notesArray }, null, 2)
-  );
-  // return finished code to post route for response
-  return note;
-}
-
-function validateNote(note) {
-  if (!note.title || typeof note.title !== 'string') {
-    return false;
-  }
-  if (!note.text || typeof note.text !== 'string') {
-    return false
-  }
-  return true;
-};
 
 // calls db.json
 app.get('/api/notes', (req, res) => {
@@ -87,6 +50,16 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+// HTML routes
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/notes.html'))
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// listen for server
 app.listen(3001, () => {
     console.log(`API server now on port ${PORT}!`);
   });
